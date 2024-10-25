@@ -100,9 +100,9 @@ int main(void)
 	
 	About::Setup();
 	Leds::Setup();
+	SPI::Setup();
 	CANLib::Setup();
 	ButtonsLeds::Setup();
-	SPI::Setup();
 	Out::Setup();
 	
 	Leds::obj.SetOn(Leds::LED_GREEN, 50, 1950);
@@ -115,9 +115,9 @@ int main(void)
 
 		About::Loop(current_time);
 		Leds::Loop(current_time);
+		SPI::Loop(current_time);
 		CANLib::Loop(current_time);
 		ButtonsLeds::Loop(current_time);
-		SPI::Loop(current_time);
 		Out::Loop(current_time);
 	}
 }
