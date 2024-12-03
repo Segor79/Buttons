@@ -35,8 +35,8 @@ namespace Analog
 			uint16_t vin = VoltageCalculate(value, VoltCalcParams);
 			uint8_t *vin_bytes = (uint8_t *)&vin;
 			
-			CANLib::obj_block_health.SetValue(0, vin_bytes[0], CAN_TIMER_TYPE_NORMAL);
-			CANLib::obj_block_health.SetValue(1, vin_bytes[1], CAN_TIMER_TYPE_NORMAL);
+			CANLib::obj_block_health.SetValue(0, vin_bytes[0]);
+			CANLib::obj_block_health.SetValue(1, vin_bytes[1]);
 		}
 		
 		return;
