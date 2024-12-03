@@ -11,7 +11,7 @@ namespace Analog
 	void OnMuxResponse(uint8_t address, uint16_t value);
 	
 	EasyPinA adc_pin(&hadc1, GPIOB, GPIO_PIN_1, ADC_CHANNEL_9, ADC_SAMPLETIME_7CYCLES_5);
-	volt_calc_t VoltCalcParams = {((1 << 12) - 1), 3300, 82000, 10000, 24};
+	volt_calc_t VoltCalcParams = {((1 << 12) - 1), 3324, 82000, 10000, 17};
 	
 	AnalogMux<0> mux( OnMuxRequest, OnMuxResponse
 	/*,

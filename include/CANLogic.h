@@ -9,7 +9,7 @@ namespace CANLib
 	EasyPinD can_rs(GPIOA, {GPIO_PIN_15, GPIO_MODE_OUTPUT_OD, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW});
 	
 	
-	static constexpr uint8_t CFG_CANObjectsCount = 23;
+	static constexpr uint8_t CFG_CANObjectsCount = 5;
 	static constexpr uint8_t CFG_CANFrameBufferSize = 16;
 	static constexpr uint16_t CFG_FIRST_CANID = 0x0210;
 	
