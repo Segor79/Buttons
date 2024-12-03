@@ -162,8 +162,8 @@ namespace SPI
 		if(current_time - last > 1500)
 		{
 			last= current_time;
-			qwewqeq();
-			qweqwerrr();
+			//qwewqeq();
+			//qweqwerrr();
 		}
 
 		current_time = HAL_GetTick();
