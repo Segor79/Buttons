@@ -1,4 +1,5 @@
 #pragma once
+#include <EasyPinD.h>
 #include <CANLibrary.h>
 
 extern CAN_HandleTypeDef hcan;
@@ -6,22 +7,20 @@ extern void HAL_CAN_Send(uint16_t id, uint8_t *data_raw, uint8_t length_raw);
 
 namespace CANLib
 {
-	EasyPinD can_rs(GPIOA, {GPIO_PIN_15, GPIO_MODE_OUTPUT_OD, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW});
-	
-	
 	static constexpr uint8_t CFG_CANObjectsCount = 5;
 	static constexpr uint8_t CFG_CANFrameBufferSize = 16;
-	static constexpr uint16_t CFG_FIRST_CANID = 0x0210;
+	static constexpr uint16_t CFG_CANFirstId = 0x0220;
 	
+	EasyPinD can_rs(GPIOA, {GPIO_PIN_15, GPIO_MODE_OUTPUT_OD, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW});
 	
 	CANManager<CFG_CANObjectsCount, CFG_CANFrameBufferSize> can_manager(&HAL_CAN_Send);
 	
-	CANObject<uint8_t, 7> obj_block_info(CFG_FIRST_CANID + 0);
-	CANObject<uint8_t, 7> obj_block_health(CFG_FIRST_CANID + 1);
-	CANObject<uint8_t, 7> obj_block_features(CFG_FIRST_CANID + 2);
-	CANObject<uint8_t, 7> obj_block_error(CFG_FIRST_CANID + 3);
+	CANObject<uint8_t, 7> obj_block_info(CFG_CANFirstId + 0);
+	CANObject<uint8_t, 7> obj_block_health(CFG_CANFirstId + 1);
+	CANObject<uint8_t, 7> obj_block_features(CFG_CANFirstId + 2);
+	CANObject<uint8_t, 7> obj_block_error(CFG_CANFirstId + 3);
 	
-	CANObject<uint8_t, 2> obj_buttonled(CFG_FIRST_CANID + 4);
+	CANObject<uint8_t, 2> obj_buttonled(CFG_CANFirstId + 4);
 	
 	
 	void CAN_Enable()
