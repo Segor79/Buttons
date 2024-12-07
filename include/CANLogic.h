@@ -7,7 +7,7 @@ extern void HAL_CAN_Send(uint16_t id, uint8_t *data_raw, uint8_t length_raw);
 
 namespace CANLib
 {
-	static constexpr uint8_t CFG_CANObjectsCount = 5;
+	static constexpr uint8_t CFG_CANObjectsCount = 8;
 	static constexpr uint8_t CFG_CANFrameBufferSize = 16;
 	static constexpr uint16_t CFG_CANFirstId = 0x0220;
 	
@@ -20,7 +20,10 @@ namespace CANLib
 	CANObject<uint8_t, 7> obj_block_features(CFG_CANFirstId + 2);
 	CANObject<uint8_t, 7> obj_block_error(CFG_CANFirstId + 3);
 	
-	CANObject<uint8_t, 2> obj_buttonled(CFG_CANFirstId + 4);
+	CANObject<uint8_t, 2> obj_buttonled_cn2(CFG_CANFirstId + 4);
+	CANObject<uint8_t, 2> obj_buttonled_cn3(CFG_CANFirstId + 5);
+	CANObject<uint8_t, 2> obj_buttonled_cn4(CFG_CANFirstId + 6);
+	CANObject<uint8_t, 2> obj_buttonled_cn5(CFG_CANFirstId + 7);
 	
 	
 	void CAN_Enable()
@@ -57,7 +60,10 @@ namespace CANLib
 		can_manager.RegisterObject(obj_block_features);
 		can_manager.RegisterObject(obj_block_error);
 		
-		can_manager.RegisterObject(obj_buttonled);
+		can_manager.RegisterObject(obj_buttonled_cn2);
+		can_manager.RegisterObject(obj_buttonled_cn3);
+		can_manager.RegisterObject(obj_buttonled_cn4);
+		can_manager.RegisterObject(obj_buttonled_cn5);
 		
 		
 		// Передача версий и типов в объект block_info
